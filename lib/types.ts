@@ -9,6 +9,11 @@ export interface FileLink {
   type: string;
 }
 
+export interface VideoLink {
+  title: string;
+  url: string;
+}
+
 export interface SubjectFrontmatter {
   title: string;
   code: string;
@@ -17,8 +22,10 @@ export interface SubjectFrontmatter {
   branchName: string;
   credits: number;
   units: SyllabusUnit[];
+  notes?: FileLink[];
   practicalFiles?: FileLink[];
   pyqs?: FileLink[];
+  endSemSaviour?: VideoLink[];
 }
 
 export interface Subject extends SubjectFrontmatter {

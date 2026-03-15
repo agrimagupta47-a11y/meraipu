@@ -5,6 +5,7 @@ import type { Subject } from "@/lib/types";
 import { TabNav, type SubjectTab } from "./TabNav";
 import { SyllabusAccordion } from "./SyllabusAccordion";
 import { PdfCard } from "./PdfCard";
+import { YoutubeCard } from "./YoutubeCard";
 
 interface SubjectDetailProps {
   subject: Subject;
@@ -26,6 +27,17 @@ export function SubjectDetail({ subject }: SubjectDetailProps) {
         {activeTab === "syllabus" && (
           <SyllabusAccordion units={subject.units} />
         )}
+        {activeTab === "notes" && (
+          <div className="grid gap-4 sm:grid-cols-2">
+            {(subject.notes ?? []).length === 0 ? (
+              <p className="text-muted-foreground col-span-full">No notes added yet.</p>
+            ) : (
+              (subject.notes ?? []).map((file, i) => (
+                <PdfCard key={i} file={file} />
+              ))
+            )}
+          </div>
+        )}
         {activeTab === "practical" && (
           <div className="grid gap-4 sm:grid-cols-2">
             {(subject.practicalFiles ?? []).length === 0 ? (
@@ -44,6 +56,17 @@ export function SubjectDetail({ subject }: SubjectDetailProps) {
             ) : (
               (subject.pyqs ?? []).map((file, i) => (
                 <PdfCard key={i} file={file} />
+              ))
+            )}
+          </div>
+        )}
+        {activeTab === "endsemsaviour" && (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {(subject.endSemSaviour ?? []).length === 0 ? (
+              <p className="text-muted-foreground col-span-full">No videos added yet.</p>
+            ) : (
+              (subject.endSemSaviour ?? []).map((video, i) => (
+                <YoutubeCard key={i} video={video} />
               ))
             )}
           </div>

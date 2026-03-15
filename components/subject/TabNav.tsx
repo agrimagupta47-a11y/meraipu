@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 
-export type SubjectTab = "syllabus" | "practical" | "pyqs";
+export type SubjectTab = "syllabus" | "notes" | "practical" | "pyqs" | "endsemsaviour";
 
 const TABS: { id: SubjectTab; label: string }[] = [
   { id: "syllabus", label: "Syllabus" },
+  { id: "notes", label: "Notes" },
   { id: "practical", label: "Practical File" },
   { id: "pyqs", label: "PYQs" },
+  { id: "endsemsaviour", label: "End Sem Saviour" },
 ];
 
 interface TabNavProps {

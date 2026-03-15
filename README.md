@@ -57,6 +57,11 @@ units:
       More content...
   # ... up to Unit 4 or as needed
 
+notes:            # optional
+  - title: "Unit 1–2 Notes"
+    url: "https://drive.google.com/file/d/XXXXX/view"
+    type: "pdf"
+
 practicalFiles:   # optional
   - title: "Lab File 2024"
     url: "https://drive.google.com/file/d/XXXXX/view"
@@ -66,11 +71,15 @@ pyqs:            # optional
   - title: "End Sem 2023"
     url: "https://drive.google.com/file/d/XXXXX/view"
     type: "pdf"
+
+endSemSaviour:   # optional — YouTube videos (thumbnail + link)
+  - title: "Unit 1–2 Revision"
+    url: "https://www.youtube.com/watch?v=VIDEO_ID"
 ---
 ```
 
 - **Required fields:** `title`, `code`, `year`, `branch`, `branchName`, `credits`, `units`.
-- **Optional:** `practicalFiles`, `pyqs` (arrays of `{ title, url, type }`).
+- **Optional:** `notes`, `practicalFiles`, `pyqs` (arrays of `{ title, url, type }`); `endSemSaviour` (array of `{ title, url }` — YouTube URLs; the app shows the video thumbnail and links to the video).
 - No code changes are needed; the app discovers the new file at build time.
 
 ---
